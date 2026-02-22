@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.10)
+project(cyber-watchdog VERSION 2.2.0 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(CURL REQUIRED)
+find_package(Curses REQUIRED)
+add_executable(cyber-watchdog main.cpp)
+target_include_directories(cyber-watchdog PRIVATE ${CURSES_INCLUDE_DIRS})
+target_link_libraries(cyber-watchdog PRIVATE CURL::libcurl ${CURSES_LIBRARIES} pthread)
+target_compile_options(cyber-watchdog PRIVATE -O2 -Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers)
+CMAKEOF
