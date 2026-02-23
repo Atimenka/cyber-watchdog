@@ -3,7 +3,7 @@ Cyber-Watchdog is an advanced, low-level system diagnostic framework engineered 
 By strategically anchoring its background daemon immediately after Socket Units and prior to the D-Bus System Message Bus, Cyber-Watchdog functions as a "Pre-Systemic" arbiter. It captures transient faults, race conditions, and kernel telemetry at the exact moment of their activation.
 🔬 Scientific & Technical Foundation
 
-The code on GitHub will not be updated from 0.0.1 to the first beta
+The code on GitHub will not be updated from 0.0.1 to the first beta Although I've changed my mind.
 
 
     Pre-DBus Runtime Orchestration: The background monitor utilizes a custom systemd unit with DefaultDependencies=no. This ensures it bypasses standard boot delays, allowing for the observation of the D-Bus daemon’s initialization and potential failures within the sysinit.target.
