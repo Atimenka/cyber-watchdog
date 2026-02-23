@@ -1,0 +1,11 @@
+[Unit]
+Description=Cyber-Watchdog initrd
+DefaultDependencies=no
+After=initrd.target
+Before=initrd-switch-root.target
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/cyber-watchdog --panic-save
+[Install]
+WantedBy=initrd.target

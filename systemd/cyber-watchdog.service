@@ -1,0 +1,17 @@
+[Unit]
+Description=Cyber-Watchdog Kernel Monitor
+DefaultDependencies=no
+After=sysinit.target
+Before=basic.target
+Before=sockets.target
+Wants=sysinit.target
+Conflicts=shutdown.target
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/cyber-watchdog --daemon
+Restart=always
+RestartSec=3
+OOMScoreAdjust=-900
+[Install]
+WantedBy=sysinit.target
+WantedBy=multi-user.target

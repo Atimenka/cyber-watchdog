@@ -1,0 +1,4 @@
+[package]
+name = "cw-netup"
+version = "0.0.2"
+edition = "2021"

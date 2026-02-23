@@ -1,0 +1,8 @@
+poll_interval = 5
+report_interval = 3600
+memory_warn = 85
+memory_crit = 95
+load_warn = 2.0
+load_crit = 5.0
+temp_warn = 80
+temp_crit = 95
