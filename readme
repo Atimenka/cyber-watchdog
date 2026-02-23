@@ -3,6 +3,9 @@ Cyber-Watchdog is an advanced, low-level system diagnostic framework engineered 
 By strategically anchoring its background daemon immediately after Socket Units and prior to the D-Bus System Message Bus, Cyber-Watchdog functions as a "Pre-Systemic" arbiter. It captures transient faults, race conditions, and kernel telemetry at the exact moment of their activation.
 🔬 Scientific & Technical Foundation
 
+The code on GitHub will not be updated from 0.0.1 to the first beta
+
+
     Pre-DBus Runtime Orchestration: The background monitor utilizes a custom systemd unit with DefaultDependencies=no. This ensures it bypasses standard boot delays, allowing for the observation of the D-Bus daemon’s initialization and potential failures within the sysinit.target.
     Console-Based Neural Engine: In the current Alpha phase, the neural inference engine is accessed via a dedicated Console Interface. This allows for the deterministic processing of captured kernel buffers (kmsg) and system states directly through the terminal.
     Heuristic Pattern Recognition: The framework identifies deterministic precursors to system instability — such as memory exhaustion, driver deadlocks, and interrupt conflicts — that standard high-level logging tools often overlook.
@@ -35,4 +38,31 @@ cyber-watchdog
 
 Use code with caution.
 ⚠️ Alpha Research Status
-This software is in an active research (Alpha) state. The background sentinel is fully automated, while the neural engine currently operates in Console Mode for precise diagnostics. Technical review for official Debian and Arch Linux (AUR) repository integration is pending.
+This software is in an active research (Alpha) state. The background sentinel is fully automated, while the neural engine currently operates in Console Mode for precise diagnostics. Technical review for official Debian and Arch Linux (AUR) repository integration is pending. \
+Command List
+# ═══ Main Modes ═══
+sudo cyber-watchdog # TUI with 9 tabs
+sudo cyber-watchdog -c # Console mode
+sudo cyber-watchdog -d # Daemon (background)
+sudo cyber-watchdog -r # Health Report
+
+# ═══ Service Management ═══
+sudo cyber-watchdog --install # Install service
+sudo cyber-watchdog --uninstall # Remove service
+sudo cyber-watchdog --status # Status
+
+# ═══ Special ═══
+sudo cyber-watchdog --panic-save # Save dmesg to all drives
+sudo cyber-watchdog --net-up # Bring up network
+sudo cyber-watchdog --help # Help
+
+# ═══ Plugins ═══
+cw-plugin-mgr list # List of plugins
+cw-plugin-mgr enable cpu-alert # Enable plugin
+cw-plugin-mgr install file.c # Install plugin
+
+# ═══ systemd control ═══
+sudo systemctl status cyber-watchdog
+sudo systemctl restart cyber-watchdog
+sudo systemctl stop cyber-watchdog
+sudo journalctl -u cyber-watchdog -f # Real-time logs
